@@ -17,6 +17,6 @@ VALIDATE $? "Start mysqld"
 mysql_secure_installation --set-root-pass RoboShop@1 &>> $LOGS_FILE
 VALIDATE $? "set root password for mysql"
 
-restart_setup
+
 
 print_total_time
