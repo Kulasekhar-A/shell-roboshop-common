@@ -79,7 +79,7 @@ systemd_setup(){
     systemctl daemon-reload &>> $LOGS_FILE
     VALIDATE $? "Reload the service"
 
-    systemctl enable $app_namee &>> $LOGS_FILE
+    systemctl enable $app_name &>> $LOGS_FILE
     VALIDATE $? "Enable the $app_name service"
 
     systemctl start $app_name &>> $LOGS_FILE
