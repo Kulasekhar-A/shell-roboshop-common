@@ -1,5 +1,6 @@
 #!/bin/bash
 
+app_name=catalogue
 source ./common.sh
 
 check_root

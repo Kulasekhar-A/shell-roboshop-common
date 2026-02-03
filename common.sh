@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USERID=$(id -u)
-LOGS_FOLDER="/var/log/shell-roboshop"
+LOGS_FOLDER="/var/log/shell-roboshop-common"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
 
 R="\e[31m"
@@ -59,7 +59,7 @@ app_setup(){
     mkdir -p /app &>> $LOGS_FILE
     VALIDATE $? "App directory"
 
-    curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>> $LOGS_FILE
+    curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>> $LOGS_FILE
     VALIDATE $? "Download the code"
 
     cd /app &>> $LOGS_FILE
@@ -68,27 +68,27 @@ app_setup(){
     rm -rf /app/*
     VALIDATE $? "Removing existing code"
 
-    unzip /tmp/catalogue.zip &>> $LOGS_FILE
+    unzip /tmp/$app_name.zip &>> $LOGS_FILE
     VALIDATE $? "Unzip the code"
 }
 
 systemd_setup(){
-    cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/catalogue.service
-    VALIDATE $? "Copying catalogue service"
+    cp $SCRIPT_DIR/catalogue.service /etc/systemd/system/$app_name.service
+    VALIDATE $? "Copying $app_name service"
 
     systemctl daemon-reload &>> $LOGS_FILE
     VALIDATE $? "Reload the service"
 
-    systemctl enable catalogue &>> $LOGS_FILE
-    VALIDATE $? "Enable the catalogue service"
+    systemctl enable $app_namee &>> $LOGS_FILE
+    VALIDATE $? "Enable the $app_name service"
 
-    systemctl start catalogue &>> $LOGS_FILE
-    VALIDATE $? "Start the catalogue service"
+    systemctl start $app_name &>> $LOGS_FILE
+    VALIDATE $? "Start the $app_name service"
 }
 
 restart_setup(){
-    systemctl restart catalogue &>> $LOGS_FILE
-    VALIDATE $? "Restart the catalogue"
+    systemctl restart $app_name  &>> $LOGS_FILE
+    VALIDATE $? "Restart the $app_name"
 }
 print_total_time(){
 
