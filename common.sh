@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-set -o pipefail
+
 
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop-common"
