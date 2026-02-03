@@ -33,6 +33,6 @@ else
   echo -e "data is already loaded ...$Y skipping $N"
 fi
 
-app restart
+restart_setup
 
 print_total_time
