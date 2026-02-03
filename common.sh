@@ -11,6 +11,7 @@ N="\e[0m"
 mkdir -p  $LOGS_FOLDER
 SCRIPT_DIR=$PWD
 MONGODB_HOST="mongodb.annuru.online"
+MYSQL_HOST="mysql.annuru.online"
 START_TIME=$(date +%s)
 
 echo "$(date "+%y-%m-%d %H:%M:%S") | script start executing at : $(date)" | tee -a $LOGS_FILE
@@ -84,6 +85,18 @@ systemd_setup(){
 
     systemctl start $app_name &>> $LOGS_FILE
     VALIDATE $? "Start the $app_name service"
+}
+
+java_setup(){
+    dnf install maven -y &>> $LOGS_FILE
+    VALIDATE $? "Installing Maven ..."
+
+    mvn clean package &>> $LOGS_FILE
+    VALIDATE $? "Clean the default package"
+
+    mv target/$app_name-1.0.jar $app_name.jar &>> $LOGS_FILE
+    VALIDATE $? "Renaming jar file"
+
 }
 
 restart_setup(){
