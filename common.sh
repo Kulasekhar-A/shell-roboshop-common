@@ -10,8 +10,8 @@ Y="\e[33m"
 N="\e[0m"
 mkdir -p  $LOGS_FOLDER
 SCRIPT_DIR=$PWD
-MONGODB_HOST="mongodb.annuru.online"
-MYSQL_HOST="mysql.annuru.online"
+MONGODB_HOST=mongodb.annuru.online
+MYSQL_HOST=mysql.annuru.online
 START_TIME=$(date +%s)
 
 echo "$(date "+%y-%m-%d %H:%M:%S") | script start executing at : $(date)" | tee -a $LOGS_FILE
