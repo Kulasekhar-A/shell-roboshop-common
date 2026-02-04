@@ -8,7 +8,7 @@ app_setup
 nodejs_setup
 systemd_setup
 
-cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
+cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.rep
 VALIDATE $? "copying mongodb repo"
 
 dnf install mongodb-mongosh -y &>> $LOGS_FILE

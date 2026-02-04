@@ -17,7 +17,7 @@ MONGODB_HOST=mongodb.annuru.online
 MYSQL_HOST=mysql.annuru.online
 START_TIME=$(date +%s)
 
-echo "$(date "+%y-%m-%d %H:%M:%S") | script start executing at : $(date)" | tee -a $LOGS_FILE
+echo "$(date "+%y-%m-%d %H:%M:%S") | script start executing at : $(date)" | tee -a $LOGS_FILe
 
 check_root(){
 if [ $USERID -ne 0 ]; then
