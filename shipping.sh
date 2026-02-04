@@ -14,7 +14,7 @@ VALIDATE $? "Copying shipping service"
 systemctl daemon-reload &>> $LOGS_FILE
 VALIDATE $? "Reload the service"
 
-systemctl enable shipping &>> $LOGS_FIL
+systemctl enable shipping &>> $LOGS_FILE
 VALIDATE $? "Enable the shipping service"
 
 systemctl start shipping &>> $LOGS_FILE
