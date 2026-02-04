@@ -10,4 +10,4 @@ systemd_setup
 
 restart_setup
 
-print_total_ti
+print_total_time
