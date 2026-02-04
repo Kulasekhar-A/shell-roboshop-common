@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app_name=user
+app_name=payment
 source ./common.sh
 
 check_root
