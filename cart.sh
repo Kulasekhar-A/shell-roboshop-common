@@ -8,4 +8,6 @@ app_setup
 nodejs_setup
 systemd_setup
 
-print_total_time
+restart_setup
+
+print_total_ti
