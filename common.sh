@@ -101,6 +101,15 @@ java_setup(){
 
 }
 
+python_setup(){
+
+    dnf install python3 gcc python3-devel -y &>> $LOGS_FILE
+    VALIDATE $? "Installing python3-devel version"
+
+    pip3 install -r requirements.txt 
+    VALIDATE $? "Install the python dependencies"
+
+}
 restart_setup(){
     systemctl restart $app_name  &>> $LOGS_FILE
     VALIDATE $? "Restart the $app_name"
