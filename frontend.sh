@@ -35,6 +35,6 @@ VALIDATE $? "Unzip the code"
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf &>> $LOGS_FILE
 VALIDATE $? "copying nginx configure" 
 
-restart_setup
+restart_setu
 
 print_total_time
