@@ -107,7 +107,7 @@ python_setup(){
     VALIDATE $? "Installing python3-devel version"
 
     cd /app
-    pip3 install -r requirements.txt 
+    pip3 install -r requirements.txt &>> $LOGS_FILE
     VALIDATE $? "Install the python dependencies"
 
 }
